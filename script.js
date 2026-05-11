@@ -3,8 +3,8 @@ const GROUPS = [
     name: "Festune",
     projectName: "Promote It",
     projectUrl: "",
-    githubUrl: "",
-    scrumUrl: "",
+    githubUrl: "https://github.com/SennaBytes/FesTunes",
+    scrumUrl: "https://trello.com/b/w5huoJ2M/promote-it",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
     hasProject: true,
     illustrationColors: ["#1e3a5f", "#2563eb", "#0ea5e9", "#7dd3fc"],
@@ -18,12 +18,12 @@ const GROUPS = [
   {
     name: "Meteor://Strike",
     projectName: "Moviemaker",
-    projectUrl: "",
+    projectUrl: "https://www.youtube.com/watch?v=8eqLzcvVpiM",
     githubUrl: "",
     scrumUrl: "",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+    description: "Check de url voor een stukje video game geschiedenis over virtual pets.",
     hasProject: false,
-    illustrationColors: ["#3d1a1a", "#dc2626", "#f97316", "#fbbf24"],
+    illustration: "./images/catz.png",
     members: [
       { name: "Jeremy", img: "./images/jeremy.jpg", color: "#b91c1c", bg: "#3d0000" },
       { name: "Alex", img: "./images/alex.jpg", color: "#d97706", bg: "#3d2200" },
@@ -38,7 +38,7 @@ const GROUPS = [
     githubUrl: "https://github.com/103604/de-koeienstall",
     scrumUrl: "",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.",
-    hasProject: true,
+    hasProject: false,
     illustrationColors: ["#0d2818", "#15803d", "#4ade80", "#bbf7d0"],
     members: [
       { name: "Luigi", img: "./images/luigi.jpg", color: "#15803d", bg: "#052e16" },
@@ -63,6 +63,18 @@ const GROUPS = [
     ]
   }
 ];
+
+function drawImage(canvas, imageSrc) {
+    const ctx = canvas.getContext('2d');
+    const img = new Image()
+    img.src = imageSrc
+    img.onload = () => {
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx.drawImage(img, 0, 0); 
+    }
+
+}
 
 function drawIllustration(canvas, colors, seed) {
   const ctx = canvas.getContext('2d');
@@ -194,14 +206,24 @@ function buildCard(group, index) {
   const btn = document.createElement('button');
   btn.className = 'btn-project';
   btn.textContent = 'Bekijk project';
-  if(!group.hasProject || !group.projectUrl) btn.disabled = true;
-  else btn.addEventListener('click', () => window.open(group.projectUrl, '_blank'));
+  console.log("group.projectUrl", group.projectUrl, !!group.projectUrl)
+  if(!!group.projectUrl) { 
+    btn.addEventListener('click', () => window.open(group.projectUrl, '_blank'))
+  } else {
+    btn.disabled = true;
+  }
+
   body.appendChild(btn);
 
   card.appendChild(body);
 
   setTimeout(() => {
-    drawIllustration(canvas, group.illustrationColors, index * 137 + 7);
+    if (group.illustrationColors) {
+        drawIllustration(canvas, group.illustrationColors, index * 137 + 7);
+    } else if (group.illustration) {
+        drawImage(canvas, group.illustration)
+    }
+
   }, 50);
 
   return card;
