@@ -36,7 +36,7 @@ const GROUPS = [
     projectName: "Promote It",
     projectUrl: "",
     githubUrl: "https://github.com/103604/de-koeienstall",
-    scrumUrl: "",
+    scrumUrl: "https://trello.com/b/GyVK9IiF/de-koeienstal",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.",
     hasProject: false,
     illustrationColors: ["#0d2818", "#15803d", "#4ade80", "#bbf7d0"],
@@ -60,6 +60,35 @@ const GROUPS = [
       { name: "Kai", img: "./images/kai.jpg", color: "#7c3aed", bg: "#2e1065" },
       { name: "Nikhil", img: "./images/nikhil.jpg", color: "#6d28d9", bg: "#2e1065" },
       { name: "Carlos", img: "./images/carlos.jpg", color: "#8b5cf6", bg: "#1e1b4b" },
+    ]
+  },
+  {
+    name: "EDD",
+    projectName: "onbekend",
+    projectUrl: "",
+    githubUrl: "",
+    scrumUrl: "",
+    description: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis.",
+    hasProject: false,
+    illustrationColors: ["#0f172a", "#2563eb", "#38bdf8", "#bae6fd"],
+    members: [
+    { name: "Emmanuel", img: "./images/emmanuel.jpg", color: "#3b82f6", bg: "#172554" },
+    { name: "Diego", img: "./images/diego.jpg", color: "#0ea5e9", bg: "#082f49" },
+    { name: "Dylan", img: "./images/dylan.jpg", color: "#60a5fa", bg: "#1e3a8a" },
+    ]
+  },
+  {
+    name: "Capitain ekalow",
+    projectName: "Promote-IT",
+    projectUrl: "",
+    githubUrl: "https://github.com/Bmwg80/captain-ekalow",
+    scrumUrl: "",
+    description: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis.",
+    hasProject: false,
+    illustrationColors: ["#431407", "#ea580c", "#fb923c", "#fed7aa"],
+    members: [
+    { name: "Adam", img: "./images/adam.jpg", color: "#f97316", bg: "#7c2d12" },
+    { name: "Christiaan", img: "./images/christiaan.jpg", color: "#fb923c", bg: "#9a3412" },
     ]
   }
 ];
